@@ -4,7 +4,7 @@ layoutdir: "layouts"
 publishdir: "public"
 indexes:
   category: "categories"
-baseurl: "http://blog.tomduncalf.com"
+baseurl: "http://blog.tomduncalf.com/"
 title: "Tom Duncalf’s Blog"
 canonifyurls: true
 theme: "vienna"
