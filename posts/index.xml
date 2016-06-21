@@ -18,9 +18,9 @@
 
 &lt;h1 id=&#34;introduction:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Introduction&lt;/h1&gt;
 
-&lt;p&gt;This post is a brain dump of the steps required to set up a Typescript and React project with some explanatory notes – I intend to write more about working with this combination in more detail soon.&lt;/p&gt;
+&lt;p&gt;This post is a brain dump of the steps required to set up a Typescript and React project with some explanatory notes – I intend to write about working with Typescript and React in a real world project in more detail soon. Some knowledge of React and of the basics of Typescript is assumed.&lt;/p&gt;
 
-&lt;p&gt;These instructions are for setting up a new project with Typescript, React, Webpack and Babel – neither Webpack nor Babel are required to work with Typescript, as Typescript can transpile ES6 to ES5 and do some degree of bundling itself; but using them enables Hot Module Reloading, and also allows you to run other Babel and Webpack plugins on the compiled output if desired.&lt;/p&gt;
+&lt;p&gt;These instructions will guide you through setting up a new project with Typescript, React, Webpack and Babel – neither Webpack nor Babel are required to work with Typescript, as Typescript can transpile ES6 to ES5 and do some degree of bundling itself; but using them enables Hot Module Reloading, and also allows you to run other Babel and Webpack plugins on the compiled output if desired.&lt;/p&gt;
 
 &lt;p&gt;The resulting project template is available on Github at &lt;a href=&#34;https://github.com/tomduncalf/ts-react-template&#34;&gt;https://github.com/tomduncalf/ts-react-template&lt;/a&gt;.&lt;/p&gt;
 
@@ -28,7 +28,7 @@
 
 &lt;h2 id=&#34;atom:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Atom&lt;/h2&gt;
 
-&lt;p&gt;Atom users will need to install the &lt;code&gt;atom-typescript&lt;/code&gt; plugin, which is excellent, but it currently doesn&amp;rsquo;t support some the features in Typescript 1.9, and seems to be &lt;a href=&#34;https://github.com/TypeStrong/atom-typescript/pull/849&#34;&gt;lacking an active project leader&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Atom users will need to install the &lt;code&gt;atom-typescript&lt;/code&gt; plugin, which is excellent, but currently doesn&amp;rsquo;t support some of the features in Typescript 1.9, and seems to be &lt;a href=&#34;https://github.com/TypeStrong/atom-typescript/pull/849&#34;&gt;lacking an active project leader&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;sublime:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Sublime&lt;/h2&gt;
 
@@ -44,7 +44,7 @@
 
 &lt;p&gt;Visual Studio Code has the best Typescript integration (as you might expect from Microsoft!) and is noticeably faster than Atom. In the past, I was put off using VS Code due to the lack of tabs, but as these are now available in the latest &lt;a href=&#34;http://code.visualstudio.com/Download#insiders&#34;&gt;Insiders build&lt;/a&gt; by &lt;a href=&#34;https://github.com/Microsoft/vscode-docs/blob/vnext/release-notes/June_2016.md#tabs&#34;&gt;enabling a flag&lt;/a&gt;, it&amp;rsquo;s now my recommended editor.&lt;/p&gt;
 
-&lt;p&gt;The Atom and Sublime plugins offer broadly similar functionality, and I have always used Atom in the past, but I can&amp;rsquo;t fully recommend it at the minute due to the uncertain status of the &lt;code&gt;atom-typescript&lt;/code&gt; plugin and it&amp;rsquo;s lack of support for Typescript 1.9 features. The Sublime plugin is an official Microsoft product, so shouldn&amp;rsquo;t suffer from the same issues, and is a great choice if you are already a Sublime user.&lt;/p&gt;
+&lt;p&gt;The Atom and Sublime plugins offer broadly similar functionality, and I have always used Atom in the past, but I can&amp;rsquo;t fully recommend it at the minute due to the uncertain status of the &lt;code&gt;atom-typescript&lt;/code&gt; plugin and its lack of support for Typescript 1.9 features (although this is fair enough, as it is still a beta). The Sublime plugin is an official Microsoft product, so shouldn&amp;rsquo;t suffer from the same issues, and is a great choice if you are already a Sublime user.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; If you are using Visual Studio Code, see step 1 for additional setup required to make it use the &lt;code&gt;typescript@next&lt;/code&gt; compiler.&lt;/p&gt;
 
@@ -55,37 +55,37 @@
 &lt;h1 id=&#34;basic-project-setup:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Basic project setup&lt;/h1&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Typescript globally&lt;/strong&gt; - this is optional, but it&amp;rsquo;s handy to have &lt;code&gt;tsc&lt;/code&gt; available globally at the command line. We will use &lt;code&gt;typescript@next&lt;/code&gt; (version 1.9.x) even though it is still in beta, as it supports installing type definitions from &lt;code&gt;npm&lt;/code&gt; rather than having to use the &lt;code&gt;typings&lt;/code&gt; tool, which is &lt;a href=&#34;the way of the future&#34;&gt;https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/&lt;/a&gt; and makes life much easier.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Typescript globally&lt;/strong&gt; - this is optional, but it&amp;rsquo;s handy to have the Typescript compiler &lt;code&gt;tsc&lt;/code&gt; available globally at the command line. We will use &lt;code&gt;typescript@next&lt;/code&gt; (version 1.9.x) even though it is still in beta, as it supports installing type declarations from &lt;code&gt;npm&lt;/code&gt; rather than having to use the &lt;code&gt;typings&lt;/code&gt; tool, which is &lt;a href=&#34;https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/&#34;&gt;the future of working with type declaration files&lt;/a&gt; and makes life much easier.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm install -g typescript@next
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install -g typescript@next
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;note-for-vs-code-users:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Note for VS Code users&lt;/h2&gt;
 
-&lt;p&gt;If you are using VS Code, you need to tell it to use the Typescript compiler installed with &lt;code&gt;npm&lt;/code&gt;, otherwise you&amp;rsquo;ll get syntax errors as the internal VS Code Typescript compiler is v1.8 and so doesn&amp;rsquo;t support type definitions installed from &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you are using VS Code, you need to tell it to use the Typescript compiler that you installed with &lt;code&gt;npm&lt;/code&gt;, otherwise you&amp;rsquo;ll get syntax errors as the internal VS Code Typescript compiler is v1.8 and so doesn&amp;rsquo;t support type declarations installed from &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;To do so, you&amp;rsquo;ll need to know where &lt;code&gt;npm&lt;/code&gt; has installed your global packages to – you can check this with:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm list -g | head -n1
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm list -g | head -n1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Then open up your user settings in VS Code (&lt;code&gt;Cmd&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt; on a Mac) and add a line to your user settings, pointing the &lt;code&gt;typescript.tsdk&lt;/code&gt; option to the &lt;code&gt;node_modules/typescript/lib&lt;/code&gt; direcotry in this location – for example, if the global packages are installed to &lt;code&gt;/Users/td/.nvm/versions/node/v5.5.0/lib/&lt;/code&gt;, then add the following and restart Code:&lt;/p&gt;
+&lt;p&gt;Then open up your user settings in VS Code (&lt;code&gt;Cmd&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt; on a Mac) and add a line to your user settings, pointing the &lt;code&gt;typescript.tsdk&lt;/code&gt; option to the &lt;code&gt;node_modules/typescript/lib&lt;/code&gt; directory in this location – for example, if the global packages are installed to &lt;code&gt;/Users/td/.nvm/versions/node/v5.5.0/lib/&lt;/code&gt;, then add the following and restart Code:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;{
   &amp;quot;typescript.tsdk&amp;quot;: &amp;quot;/Users/td/.nvm/versions/node/v5.5.0/lib/node_modules/typescript/lib&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create a new project&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create a new project&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;mkdir my-project &amp;amp;&amp;amp; cd my-project
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir my-project &amp;amp;&amp;amp; cd my-project
 git init
-npm init
+npm init -y
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Initialise the project for Typescript&lt;/strong&gt; - install Typescript as a dev dependency and create a skeleton &lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Initialise the project for Typescript&lt;/strong&gt; - install Typescript as a dev dependency and create a skeleton &lt;code&gt;tsconfig.json&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -D typescript@next
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -D typescript@next
 tsc --init
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -116,25 +116,25 @@ tsc --init
 &lt;p&gt;An explanation of what this all means:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;module&amp;quot;: &amp;quot;es6&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to ouptut Javascript which uses the ES6 module spec (i.e. &lt;code&gt;import&lt;/code&gt; statements). It&amp;rsquo;s also possible to set this to e.g. &lt;code&gt;commonjs&lt;/code&gt;, in which case, &lt;code&gt;tsc&lt;/code&gt; will convert your code to that module spec instead, but as we will be putting our compiled JS code through Webpack, we can keep it as ES6 and let Webpack handle module bundling.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;module&amp;quot;: &amp;quot;es6&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output code which uses the ES6 module spec (i.e. &lt;code&gt;import&lt;/code&gt; statements). It&amp;rsquo;s also possible to set this to e.g. &lt;code&gt;commonjs&lt;/code&gt;, in which case &lt;code&gt;tsc&lt;/code&gt; will convert your code to that module spec, but as we will be putting our compiled JS code through Webpack, we can keep it as ES6 and let Webpack handle the module bundling.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;target&amp;quot;: &amp;quot;es6&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output ES6 rather than ES5 Javascript code. This is fine, as we will be running the compiled JS through Babel, and keeping things such as arrow functions as ES6 code after compilation can be useful for some Babel plugins (e.g. &lt;a href=&#34;https://www.npmjs.com/package/babel-plugin-transform-react-stateless-component-name&#34;&gt;&lt;code&gt;transform-react-stateless-component-name&lt;/code&gt;&lt;/a&gt;, which automatically names stateless components).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;target&amp;quot;: &amp;quot;es6&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output ES6 rather than ES5 Javascript code. We want this as we will be running the compiled JS through Babel, and keeping ES6 code intact after compilation can be useful for some Babel plugins (e.g. &lt;a href=&#34;https://www.npmjs.com/package/babel-plugin-transform-react-stateless-component-name&#34;&gt;&lt;code&gt;transform-react-stateless-component-name&lt;/code&gt;&lt;/a&gt;, which automatically names stateless components, will only pick up on arrow functions).&lt;/p&gt;
 
-&lt;p&gt;This also allows us to use &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt;, which is understood but not currently able to be transpiled by Typescript – instead, Babel will handle the transpilation of &lt;code&gt;async&lt;/code&gt; code. If we weren&amp;rsquo;t using Babel, this setting can be omitted or set to &lt;code&gt;es5&lt;/code&gt;, to make &lt;code&gt;tsc&lt;/code&gt; transpile any ES6-style code into ES5 itself.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;This also allows us to use &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt;, which is understood by Typescript but not currently able to be transpiled – instead, we can use Babel to handle the transpilation of &lt;code&gt;async&lt;/code&gt; code. If we weren&amp;rsquo;t using Babel, this setting could be omitted or set to &lt;code&gt;es5&lt;/code&gt;, to make &lt;code&gt;tsc&lt;/code&gt; do the transpilation of ES6 to ES5 itself.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;moduleResolution&amp;quot;: &amp;quot;node&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to use the Node module resolution strategy. This allows Typescript to load type definitions supplied by &lt;code&gt;npm&lt;/code&gt; packages directly (e.g. MobX includes its own type definitions by default), and with the &lt;code&gt;baseUrl&lt;/code&gt; option, allows us to use absolute-style imports for local modules.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;moduleResolution&amp;quot;: &amp;quot;node&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to use the Node module resolution strategy. This allows Typescript to load type declarations supplied alongside &lt;code&gt;npm&lt;/code&gt; packages (e.g. MobX includes its own type declarations in the main &lt;code&gt;mobx&lt;/code&gt; package), and with the &lt;code&gt;baseUrl&lt;/code&gt; option, allows us to use absolute-style imports for local modules.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;baseUrl&amp;quot;: &amp;quot;src&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to look in &lt;code&gt;src&lt;/code&gt; for any modules we import that aren&amp;rsquo;t found in &lt;code&gt;node_modules&lt;/code&gt;. This allows you to write absolute style imports for local modules, e.g. &lt;code&gt;import Whatever from &#39;components/Whatever&#39;&lt;/code&gt; rather than &lt;code&gt;import Whatever from &#39;../components/Whatever&#39;&lt;/code&gt;, which is great for one&amp;rsquo;s sanity.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;baseUrl&amp;quot;: &amp;quot;src&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to look in &lt;code&gt;src&lt;/code&gt; for any modules we import that aren&amp;rsquo;t found in &lt;code&gt;node_modules&lt;/code&gt;. This allows us to write absolute-style imports for local modules, e.g. &lt;code&gt;import Whatever from &#39;components/Whatever&#39;&lt;/code&gt; rather than &lt;code&gt;import Whatever from &#39;../components/Whatever&#39;&lt;/code&gt;, which is great for one&amp;rsquo;s sanity.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Note that this does not work with the current version of &lt;code&gt;atom-typescript&lt;/code&gt;&lt;/strong&gt; (see &lt;a href=&#34;https://github.com/TypeStrong/atom-typescript/pull/849&#34;&gt;https://github.com/TypeStrong/atom-typescript/pull/849&lt;/a&gt;) – remove this line from your &lt;code&gt;tsconfig.json&lt;/code&gt; if you want to use Atom. You can get an approximation of the absolute-style import by using &lt;code&gt;&amp;quot;moduleResolution&amp;quot;: &amp;quot;classic&amp;quot;&lt;/code&gt; (which will walk up the directory tree until a match is found, so not the same behaviour, but similar end result in many cases), but this breaks the ability to automatically import type definitions supplied with &lt;code&gt;npm&lt;/code&gt; packages.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;Note that this settings does not work with the current version of &lt;code&gt;atom-typescript&lt;/code&gt;&lt;/strong&gt; (see &lt;a href=&#34;https://github.com/TypeStrong/atom-typescript/pull/849&#34;&gt;https://github.com/TypeStrong/atom-typescript/pull/849&lt;/a&gt;) – remove this line from your &lt;code&gt;tsconfig.json&lt;/code&gt; if you want to use Atom. You can get an approximation of the absolute-style import by using &lt;code&gt;&amp;quot;moduleResolution&amp;quot;: &amp;quot;classic&amp;quot;&lt;/code&gt; (which will walk up the directory tree until a match is found, so not the same behaviour, but similar end result in many cases), but this breaks the ability to automatically import type declarations supplied with &lt;code&gt;npm&lt;/code&gt; packages.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;allowSyntheticDefaultImports&amp;quot;: true&lt;/code&gt; allows you to use ES6 &lt;code&gt;import&lt;/code&gt; syntax for Node modules without a default export.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;allowSyntheticDefaultImports&amp;quot;: true&lt;/code&gt; allows us to use ES6 &lt;code&gt;import&lt;/code&gt; syntax for &lt;code&gt;npm&lt;/code&gt; modules which don&amp;rsquo;t have a default export.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;noImplicitAny&amp;quot;: false&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; not to warn us if any variables are inferred as having a type of &lt;code&gt;any&lt;/code&gt;. It might actually be a good practice to set this to &lt;code&gt;true&lt;/code&gt;, but it does mean you&amp;rsquo;ll potentially have to be more liberal with type annotations.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;noImplicitAny&amp;quot;: false&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; not to warn us if any variables are inferred as having a type of &lt;code&gt;any&lt;/code&gt;. It&amp;rsquo;s actually probably good practice to set this to &lt;code&gt;true&lt;/code&gt;, but it does mean you&amp;rsquo;ll potentially have to be more liberal with type annotations.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;sourceMap&amp;quot;: true&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output a source map, which enables easier debugging from the browser as it can tell you where in the original &lt;code&gt;.ts&lt;/code&gt; source something happened, rather than in the compiled &lt;code&gt;.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;sourceMap&amp;quot;: true&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output a source map, which enables easier debugging from the browser as it can tell you where in the original &lt;code&gt;.ts&lt;/code&gt; source file an error occurred, rather than just in the compiled &lt;code&gt;.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;outDir&amp;quot;: &amp;quot;ts-build&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output the compiled &lt;code&gt;.js&lt;/code&gt; files to a directory called &lt;code&gt;ts-build&lt;/code&gt; (which can be &lt;code&gt;.gitignore&lt;/code&gt;d). The default is to output them alongside the original &lt;code&gt;.ts&lt;/code&gt; source files, but this gets messy. It should be noted that most of the time, we won&amp;rsquo;t be outputting the compiled &lt;code&gt;.js&lt;/code&gt; to disk, as the Webpack loader will do it directly, but it is sometimes useful to be able to invoke &lt;code&gt;tsc&lt;/code&gt; manually and inspect the compiled output.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;outDir&amp;quot;: &amp;quot;ts-build&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to output the compiled &lt;code&gt;.js&lt;/code&gt; files to a directory called &lt;code&gt;ts-build&lt;/code&gt; (which can be &lt;code&gt;.gitignore&lt;/code&gt;d). The default is to output them alongside the original &lt;code&gt;.ts&lt;/code&gt; source files, but this gets messy. It should be noted that most of the time, we won&amp;rsquo;t be outputting the compiled &lt;code&gt;.js&lt;/code&gt; to disk, as the Webpack loader will do the compilation in memory, but it is sometimes useful to be able to invoke &lt;code&gt;tsc&lt;/code&gt; manually and inspect the compiled output.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;code&gt;&amp;quot;jsx&amp;quot;: &amp;quot;preserve&amp;quot;&lt;/code&gt; tells &lt;code&gt;tsc&lt;/code&gt; to leave JSX code as it is, meaning that something else (in this case, Babel) is responsible for compiling it down to &lt;code&gt;React.createElement&lt;/code&gt; function calls. It is possible to set this to &lt;code&gt;&amp;quot;react&amp;quot;&lt;/code&gt; instead, which will cause &lt;code&gt;tsc&lt;/code&gt; to output &lt;code&gt;React.createElement&lt;/code&gt; calls directly, but it can be useful to have the raw JSX available to Babel, e.g. for plugins to process.&lt;/p&gt;&lt;/li&gt;
 
@@ -147,12 +147,12 @@ tsc --init
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Install React to &lt;code&gt;node_modules&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -S react
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -S react
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;To demonstrate what we are about to do, &lt;strong&gt;&lt;code&gt;mkdir src&lt;/code&gt; and create a file &lt;code&gt;index.tsx&lt;/code&gt; in there&lt;/strong&gt; containing a basic (stateless) React component:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;import * as React from &#39;react&#39;;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import * as React from &#39;react&#39;;
 
 
 export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;;
@@ -160,60 +160,60 @@ export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;;
 
 &lt;p&gt;If your editor is set up correctly, you should already see that it has highlighted an issue with the &lt;code&gt;import * as React from &#39;react&#39;;&lt;/code&gt; line, but to demonstrate further, run &lt;code&gt;tsc&lt;/code&gt; from your project root and you should get the following output:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;src/index.tsx(1,24): error TS2307: Cannot find module &#39;react&#39;.
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;src/index.tsx(1,24): error TS2307: Cannot find module &#39;react&#39;.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The issue here is that the Typescript type definitions for React aren&amp;rsquo;t installed, and so Typescript says it can&amp;rsquo;t find the module, as Typescript requires type declarations for any modules you &lt;code&gt;import&lt;/code&gt; (the error message it gives here could probably be clearer).&lt;/p&gt;
+&lt;p&gt;The issue here is that the Typescript type declarations for React aren&amp;rsquo;t installed, and so Typescript says it can&amp;rsquo;t find the module, as type declarations are required for any modules that are &lt;code&gt;import&lt;/code&gt;ed (the error message doesn&amp;rsquo;t make this especially clear!).&lt;/p&gt;
 
 &lt;p&gt;Something interesting to note, however, is that &lt;code&gt;tsc&lt;/code&gt; has created a &lt;code&gt;ts-build&lt;/code&gt; directory and written &lt;code&gt;index.jsx&lt;/code&gt; there, with sensible contents – in general, the Typescript compiler will try and emit code even if there are errors, as long as they aren&amp;rsquo;t fatal (although this can be disabled in &lt;code&gt;tsconfig.json&lt;/code&gt; with the &lt;code&gt;noEmitOnError&lt;/code&gt; option).&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Before installing type definitions for React, we first need to check if they exist&lt;/strong&gt; – the majority of type definition files are created by the community, and most popular libraries are covered.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Before installing type declarations for React, we first need to check if they exist&lt;/strong&gt; – the majority of type declaration files are created by the community rather than the library authors, but most popular libraries are covered.&lt;/p&gt;
 
-&lt;p&gt;The type definition system has been through several iterations of tooling (first &lt;code&gt;tsd&lt;/code&gt;, then &lt;code&gt;typings&lt;/code&gt;) but is now moving to be purely &lt;code&gt;npm&lt;/code&gt; based. The original definitions live in the massive &lt;a href=&#34;https://github.com/DefinitelyTyped/DefinitelyTyped&#34;&gt;DefinitelyTyped Github repo&lt;/a&gt;, and are automatically synced to &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The type declaration system has been through several iterations of tooling (first &lt;code&gt;tsd&lt;/code&gt;, then &lt;code&gt;typings&lt;/code&gt;) but is now moving to be purely &lt;code&gt;npm&lt;/code&gt; based. The original definitions live in the massive &lt;a href=&#34;https://github.com/DefinitelyTyped/DefinitelyTyped&#34;&gt;DefinitelyTyped Github repo&lt;/a&gt;, and are automatically synced to &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;It seems that the only way to check if a package has type definitions in &lt;code&gt;npm&lt;/code&gt; is to search at &lt;a href=&#34;http://microsoft.github.io/TypeSearch/&#34;&gt;http://microsoft.github.io/TypeSearch/&lt;/a&gt; – type in &lt;code&gt;react&lt;/code&gt;, and indeed it does have a definition, hosted on &lt;code&gt;npm&lt;/code&gt; at &lt;a href=&#34;https://www.npmjs.com/package/@types/react&#34;&gt;https://www.npmjs.com/package/@types/react&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It seems that the only way to check if a package has type declarations in &lt;code&gt;npm&lt;/code&gt; is to search at &lt;a href=&#34;http://microsoft.github.io/TypeSearch/&#34;&gt;http://microsoft.github.io/TypeSearch/&lt;/a&gt; – type in &lt;code&gt;react&lt;/code&gt;, and indeed it does have a definition, hosted on &lt;code&gt;npm&lt;/code&gt; at &lt;a href=&#34;https://www.npmjs.com/package/@types/react&#34;&gt;https://www.npmjs.com/package/@types/react&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Previous iterations of the typing system had the ability to search from the command line, which is preferable in most cases, so hopefully someone will fill this gap for &lt;code&gt;npm&lt;/code&gt;-based type definitions – for now, you could install &lt;code&gt;typings&lt;/code&gt; (&lt;a href=&#34;https://github.com/typings/typings&#34;&gt;https://github.com/typings/typings&lt;/a&gt;) and use that to search DefinitelyTyped, or just use Google/GitHub/npm search.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Previous iterations of the typing system had the ability to search from the command line, which is preferable in most cases, so hopefully someone will fill this gap for &lt;code&gt;npm&lt;/code&gt;-based type declarations – for now, you could install &lt;code&gt;typings&lt;/code&gt; (&lt;a href=&#34;https://github.com/typings/typings&#34;&gt;https://github.com/typings/typings&lt;/a&gt;) and use that to search DefinitelyTyped, or just use Google/GitHub/npm search.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Now we know the React type definitions exist at &lt;code&gt;@types/react&lt;/code&gt;, &lt;strong&gt;we can install them with &lt;code&gt;npm&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Now we know the React type declarations exist at &lt;code&gt;@types/react&lt;/code&gt;, &lt;strong&gt;we can install them with &lt;code&gt;npm&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -D @types/react
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -D @types/react
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And now both &lt;code&gt;tsc&lt;/code&gt; and your editor should be happy with the React import. At this point, you should also be able to get a sense for the autocompletion Typescript enables, by typing &lt;code&gt;React.&lt;/code&gt; somewhere in your &lt;code&gt;index.tsx&lt;/code&gt; file and seeing the autocomplete dropdown with the correct options.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;We also need the &lt;code&gt;react-dom&lt;/code&gt; package&lt;/strong&gt;, which can be installed in the same way:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -S react-dom
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -S react-dom
 npm i -D @types/react-dom
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To my mind, it makes sense for type definitions to be in &lt;code&gt;devDependencies&lt;/code&gt; (so &lt;code&gt;npm -D&lt;/code&gt; rather than &lt;code&gt;npm -S&lt;/code&gt;). Also note that the structure of the type definition package name is always &lt;code&gt;@types/&amp;lt;npm_package_name&amp;gt;&lt;/code&gt;, so you can probably just use this naming scheme and try installing types for a given package name rather than having to search in most cases.&lt;/p&gt;
+&lt;p&gt;To my mind, it makes sense for type declarations to be in &lt;code&gt;devDependencies&lt;/code&gt; (so &lt;code&gt;npm -D&lt;/code&gt; rather than &lt;code&gt;npm -S&lt;/code&gt;). Also note that the structure of the type declaration package name is always &lt;code&gt;@types/&amp;lt;npm_package_name&amp;gt;&lt;/code&gt;, so you could take advantage of this naming scheme and try installing types for a given package based on its name rather than using the search in most cases.&lt;/p&gt;
 
-&lt;p&gt;One other thing worth noting is that the current version of the React typings is &lt;code&gt;0.14&lt;/code&gt; whereas we are using React &lt;code&gt;0.15&lt;/code&gt; – this is one downside of type definitions being maintained by the community, but in most cases it doesn&amp;rsquo;t present a big problem (if the API hasn&amp;rsquo;t changed much or at all). It is of course possible to put in a PR to DefinitelyTyped to fix the type defs if they are out of sync (or to augment them with local type definition &amp;ldquo;overrides&amp;rdquo;, or in extreme cases, to import the module without any typings – more on that later).&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;One other thing worth noting is that the current version of the React typings is &lt;code&gt;0.14&lt;/code&gt; whereas we are using React &lt;code&gt;0.15&lt;/code&gt; – this is one downside of type declarations being maintained by the community, but in most cases it doesn&amp;rsquo;t present too much of a problem (as long as the API hasn&amp;rsquo;t changed much). It is of course possible to put in a PR to DefinitelyTyped to fix the type defs if they are out of sync (or to augment them with local type declaration &amp;ldquo;overrides&amp;rdquo;, or in extreme cases, to import the module without any typings – more on that later).&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&#34;setting-up-webpack-and-babel:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Setting up Webpack and Babel&lt;/h1&gt;
 
-&lt;p&gt;As mentioned above, we&amp;rsquo;re using Babel to transpile to ES6 output from Typescript, so we can take advantage of the Babel plugin ecosystem, so we need to setup Webpack to both invoke the Typescript loader, and then pass the output to Babel. I won&amp;rsquo;t go into too much detail on the Webpack setup as it&amp;rsquo;s a huge topic in itself!&lt;/p&gt;
+&lt;p&gt;As mentioned above, we&amp;rsquo;re using Babel to transpile to ES6 output from Typescript so we can take advantage of the Babel plugin ecosystem, and Webpack as our module bundler; so we need to setup Webpack to invoke the Typescript loader and then pass the output to Babel. I won&amp;rsquo;t go into too much detail on the Webpack setup as it&amp;rsquo;s a huge topic in itself!&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Webpack itself&lt;/strong&gt;, and the handy notifier plugin which will notify if a build fails with your system notifier (especially useful with Typescript as the code will be being compiled every time you save a file, so this surfaces compile errors much quicker):&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Webpack itself&lt;/strong&gt;, and the handy notifier plugin which will notify you of the build status with your system notifier (especially useful with Typescript as the code will be compiled every time you save a file, so this surfaces compile errors much quicker than watching the terminal):&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -D webpack webpack-notifier
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -D webpack webpack-notifier
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Install the Webpack Typescript loader&lt;/strong&gt;, so Webpack can handle compiling Typescript as part of the bundling process:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -D ts-loader
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -D ts-loader
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Babel itself, the Babel Webpack loader, and a few presets&lt;/strong&gt; so it can understand the Typescript compiler code (not sure &lt;code&gt;stage-0&lt;/code&gt; is strictly necessary, &lt;code&gt;stage-3&lt;/code&gt; might actually be enough for &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt;):&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Babel itself, the Babel Webpack loader, and a few presets&lt;/strong&gt; so it can understand the ES6 and JSX code that the Typescript compiler will output (I&amp;rsquo;m not sure if &lt;code&gt;stage-0&lt;/code&gt; is strictly necessary, &lt;code&gt;stage-3&lt;/code&gt; might be enough for &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt; support):&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm i -D babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm i -D babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create a &lt;code&gt;.babelrc&lt;/code&gt; file&lt;/strong&gt; in the project root, to tell Babel to use the plugins we installed:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create a &lt;code&gt;.babelrc&lt;/code&gt; file&lt;/strong&gt; in the project root to tell Babel to use the presets we just installed:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;{
   &amp;quot;presets&amp;quot;: [&amp;quot;es2015&amp;quot;, &amp;quot;react&amp;quot;, &amp;quot;stage-0&amp;quot;]
@@ -222,7 +222,7 @@ npm i -D @types/react-dom
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Create a Webpack config&lt;/strong&gt; in &lt;code&gt;config/webpack.config.js&lt;/code&gt; to tell Webpack how to build and bundle the project. I&amp;rsquo;ve added comments explaining what is going on inline:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;var webpack = require(&#39;webpack&#39;);
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var webpack = require(&#39;webpack&#39;);
 var path = require(&#39;path&#39;);
 var WebpackNotifierPlugin = require(&#39;webpack-notifier&#39;);
 
@@ -274,7 +274,7 @@ module.exports = {
 
 &lt;h1 id=&#34;adding-hot-module-reloading:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Adding hot module reloading&lt;/h1&gt;
 
-&lt;p&gt;Nearly there! All that remains is to add hot module reloading to the project. In reality, this is completely optional, but I find it invaluable for working on a React project, so would consider part of any project&amp;rsquo;s setup. It&amp;rsquo;s also not really Typescript-specific, but there aren&amp;rsquo;t many good guides out there for setting up the latest version of HMR, and setting it up gives us a chance to see a couple of Typescript features.&lt;/p&gt;
+&lt;p&gt;Nearly there! All that remains is to add hot module reloading to the project. In reality, this is completely optional, but I find it invaluable for working on a React project, so would consider it part of any project&amp;rsquo;s setup. It&amp;rsquo;s also not really Typescript-specific, but there aren&amp;rsquo;t many good guides out there for setting up the latest version of HMR, and setting it up gives us a chance to see a couple more tips on working with Typescript.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Create an &lt;code&gt;index.html&lt;/code&gt; file&lt;/strong&gt; which will load the bundled JS and give React somewhere to mount the application to. Create the file in the project root with the following contents:&lt;/p&gt;
@@ -379,10 +379,9 @@ module.exports = {
 
 &lt;li&gt;&lt;p&gt;Finally, we need to &lt;strong&gt;create a skeleton app set up in a suitable way for hot module reloading&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Our entry point need to be changed so it can handle requests to hot reload the app. Open up &lt;code&gt;src/index.tsx&lt;/code&gt; and change it to the following (comments inline):&lt;/p&gt;
+&lt;p&gt;Our entry point needs to be set up so that it can handle requests to hot reload the app. Open up &lt;code&gt;src/index.tsx&lt;/code&gt; and change it to the following (explanatory comments inline):&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;```
-// Import React and React DOM
+&lt;pre&gt;&lt;code&gt;// Import React and React DOM
 import * as React from &#39;react&#39;;
 import { render } from &#39;react-dom&#39;;
 // Import the Hot Module Reloading App Container – more on why we use &#39;require&#39; below
@@ -407,7 +406,7 @@ render(
     &amp;lt;App /&amp;gt;
   &amp;lt;/AppContainer&amp;gt;,
   rootEl
-)
+);
 
 
 // Handle hot reloading requests from Webpack
@@ -423,28 +422,27 @@ if (module.hot) {
          &amp;lt;NextApp /&amp;gt;
       &amp;lt;/AppContainer&amp;gt;,
       rootEl
-    )
+    );
   })
 }
-```
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Effectively, this renders our app inside a special container (the &lt;code&gt;react-hot-loader&lt;/code&gt; &lt;code&gt;AppContainer&lt;/code&gt;), and then waits for Webpack to notify it of any changes to any of the app&amp;rsquo;s files (which will trigger HMR requests, which end up bubbling up to the top level parent module, &lt;code&gt;containers/App&lt;/code&gt;). When a change is detected, the whole &lt;code&gt;App&lt;/code&gt; container is reloaded and the existing instance of it in the DOM is replaced with the new, modified one.&lt;/p&gt;
 
-&lt;p&gt;The trick here is that the &lt;code&gt;react-hot-loader&lt;/code&gt; &lt;code&gt;AppContainer&lt;/code&gt; takes care of persisting the state of components (whether local state or in Redux or similar) when reloaded.&lt;/p&gt;
+&lt;p&gt;The trick here is that the &lt;code&gt;react-hot-loader&lt;/code&gt; &lt;code&gt;AppContainer&lt;/code&gt; takes care of persisting the state of components (whether local state or in Redux or similar) when it is reloaded, so in most cases, we don&amp;rsquo;t lose where we were in the app.&lt;/p&gt;
 
 &lt;p&gt;A quick note on a couple of things:&lt;/p&gt;
 
-&lt;h2 id=&#34;importing-modules-without-type-definitions:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Importing modules without type definitions&lt;/h2&gt;
+&lt;h2 id=&#34;importing-modules-without-type-declarations:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Importing modules without type declarations&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;const { AppContainer } = require(&#39;react-hot-loader&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Here, we are using &lt;code&gt;require&lt;/code&gt; rather than &lt;code&gt;import&lt;/code&gt;. This is a useful trick to know, as it allows you to import an &lt;code&gt;npm&lt;/code&gt; module without requiring any type definitions.&lt;/p&gt;
+&lt;p&gt;Here, we are using &lt;code&gt;require&lt;/code&gt; rather than &lt;code&gt;import&lt;/code&gt;. This is a useful trick to know, as it allows you to import an &lt;code&gt;npm&lt;/code&gt; module without requiring any type declarations.&lt;/p&gt;
 
-&lt;p&gt;In this case, there are currently no type definitions for &lt;code&gt;react-hot-loader&lt;/code&gt;, but if we use &lt;code&gt;require&lt;/code&gt;, it is treated as being of &lt;code&gt;any&lt;/code&gt; type. This can be handy for working with modules that don&amp;rsquo;t have type definitions, particularly if you are just trying one modules to see if they are suitable and don&amp;rsquo;t want to spend time on typing.&lt;/p&gt;
+&lt;p&gt;In this case, there are currently no type declarations for &lt;code&gt;react-hot-loader&lt;/code&gt;, but if we use &lt;code&gt;require&lt;/code&gt;, it is treated as being of &lt;code&gt;any&lt;/code&gt; type. This can be handy for working with modules that don&amp;rsquo;t have type declarations, particularly if you are just trying out modules to see if they are suitable and don&amp;rsquo;t want worry about typing them.&lt;/p&gt;
 
-&lt;p&gt;If you use &lt;code&gt;const Whatever = require(&#39;whatever&#39;);&lt;/code&gt; rather than &lt;code&gt;import Whatever from &#39;whatever&#39;;&lt;/code&gt;, Typescript won&amp;rsquo;t complain about &lt;code&gt;Cannot find module&lt;/code&gt; - although it also won&amp;rsquo;t offer you any type safety when working with this module!&lt;/p&gt;
+&lt;p&gt;If you use &lt;code&gt;const Whatever = require(&#39;whatever&#39;);&lt;/code&gt; rather than &lt;code&gt;import Whatever from &#39;whatever&#39;;&lt;/code&gt;, Typescript won&amp;rsquo;t complain about &lt;code&gt;Cannot find module&lt;/code&gt; — although it also won&amp;rsquo;t offer you any type safety when working with this module!&lt;/p&gt;
 
 &lt;p&gt;See the next step for an important note on this – by default, Typescript doesn&amp;rsquo;t know what &lt;code&gt;require&lt;/code&gt; means (as it&amp;rsquo;s not a built-in Javascript construct).&lt;/p&gt;
 
@@ -460,11 +458,11 @@ if (module.hot) {
 &lt;pre&gt;&lt;code&gt;src/index.tsx(5,26): error TS2304: Cannot find name &#39;require&#39;.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This is because Typescript doesn&amp;rsquo;t know what &lt;code&gt;require&lt;/code&gt; means. There are a few ways round this, for example installing the &lt;code&gt;node&lt;/code&gt; or &lt;code&gt;requirejs&lt;/code&gt; type definitions, but the one recommended at &lt;a href=&#34;https://github.com/TypeStrong/ts-loader#loading-other-resources-and-code-splitting&#34;&gt;https://github.com/TypeStrong/ts-loader#loading-other-resources-and-code-splitting&lt;/a&gt; which plays nicely with CSS modules is to create your own declaration for &lt;code&gt;require&lt;/code&gt; — this also gives me the opportunity to demonstrate how we can create our own local type definitions for libraries!&lt;/p&gt;
+&lt;p&gt;This is because Typescript doesn&amp;rsquo;t know what &lt;code&gt;require&lt;/code&gt; means. There are a few ways round this, for example installing the &lt;code&gt;node&lt;/code&gt; or &lt;code&gt;requirejs&lt;/code&gt; type declarations, but the one recommended at &lt;a href=&#34;https://github.com/TypeStrong/ts-loader#loading-other-resources-and-code-splitting&#34;&gt;https://github.com/TypeStrong/ts-loader#loading-other-resources-and-code-splitting&lt;/a&gt; which plays nicely with CSS modules is to create your own declaration for &lt;code&gt;require&lt;/code&gt; — this also gives me the opportunity to demonstrate how we can create our own local type declarations for libraries!&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s up to you where you would like to keep your local type declarations, but I would suggest a top-level directory named &lt;code&gt;type-declarations&lt;/code&gt;. If you are using the default &lt;code&gt;exclude&lt;/code&gt; pattern for &lt;code&gt;tsconfig.json&lt;/code&gt;, any &lt;code&gt;*.ts&lt;/code&gt; files in your entire project except those in &lt;code&gt;node_modules&lt;/code&gt; will automatically be included in the compilation, so we don&amp;rsquo;t need to tell Typescript where we have put the declarations.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s up to you where you would like to keep your local type declarations, but I would suggest a top-level directory named &lt;code&gt;type-declarations&lt;/code&gt;. If you are using the default &lt;code&gt;exclude&lt;/code&gt; pattern for &lt;code&gt;tsconfig.json&lt;/code&gt;, any &lt;code&gt;*.ts&lt;/code&gt; files in your entire project except those in &lt;code&gt;node_modules&lt;/code&gt; will automatically be included in the compilation, so we don&amp;rsquo;t need to explicitly tell Typescript where we have put the declarations.&lt;/p&gt;
 
-&lt;p&gt;A type declaration file has the extension &lt;code&gt;.d.ts&lt;/code&gt;, and can declare types either globally or inside a named module scope (which is how most third party library definitions are written, so they only come into scope when imported). Details of how type declarations work is beyond the scope of this guide, but for now &lt;strong&gt;create a file named &lt;code&gt;require.d.ts&lt;/code&gt; in your &lt;code&gt;type-declarations&lt;/code&gt; directory&lt;/strong&gt; with the following contents:&lt;/p&gt;
+&lt;p&gt;A type declaration file has the extension &lt;code&gt;.d.ts&lt;/code&gt;, and can declare types either globally or inside a named module scope (which is how most third party library definitions are written, so the types only come into scope when the module is imported). Details of how type declarations work is beyond the scope of this guide, but for now &lt;strong&gt;create a file named &lt;code&gt;require.d.ts&lt;/code&gt; in a directory called &lt;code&gt;type-declarations&lt;/code&gt; in the project root&lt;/strong&gt; with the following contents:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;declare var require: {
     (path: string): any;
@@ -474,7 +472,7 @@ if (module.hot) {
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Run &lt;code&gt;tsc&lt;/code&gt; again, and it should compile – we&amp;rsquo;ve told Typescript that calling &lt;code&gt;require&lt;/code&gt; with a single string argument will return a variable of type &lt;code&gt;any&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Run &lt;code&gt;tsc&lt;/code&gt; again, and the warning should be gone (with just one about &lt;code&gt;containers/App&lt;/code&gt; being missing remaining) – we&amp;rsquo;ve told Typescript that calling &lt;code&gt;require&lt;/code&gt; with a single string argument will return a variable of type &lt;code&gt;any&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;This technique of creating local type declarations can also be useful if a libraries&amp;rsquo; declarations are out of date or inaccurate – you can add exported variables or additional properties to existing interfaces like so (although really it&amp;rsquo;s best to submit these changes back to DefinitelyTyped if time allows):&lt;/p&gt;
 
@@ -508,11 +506,11 @@ export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;
 
 &lt;h1 id=&#34;next-steps:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Next steps&lt;/h1&gt;
 
-&lt;p&gt;That&amp;rsquo;s basically it in terms of project setup. As mentioned at the start, the complete template is available at &lt;a href=&#34;https://github.com/tomduncalf/ts-react-template&#34;&gt;https://github.com/tomduncalf/ts-react-template&lt;/a&gt; – it&amp;rsquo;s helpful to go through each step and understand why it is required rather than just starting from a template the first time, but in future, you can use the template as a starting point for new projects.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s basically it in terms of project setup. As mentioned at the start, the complete template is available at &lt;a href=&#34;https://github.com/tomduncalf/ts-react-template&#34;&gt;https://github.com/tomduncalf/ts-react-template&lt;/a&gt; – I think it&amp;rsquo;s helpful to go through each step and understand why it is required the first time, but in future, you can use the template you&amp;rsquo;ve created as a starting point for new projects.&lt;/p&gt;
 
-&lt;p&gt;In terms of next steps, it&amp;rsquo;s really just a case of building your app as usual, but taking advantage of Typescript&amp;rsquo;s type checking and editor integration. The only real pain point is likely to be working with type definitions for third party libraries, but using &lt;code&gt;npm&lt;/code&gt; for the typings has made this less painful, and there is always the option to import the library using &lt;code&gt;require&lt;/code&gt; and bypassing the need for type definitions initially.&lt;/p&gt;
+&lt;p&gt;In terms of next steps, it&amp;rsquo;s really just a case of building your app as usual, but taking advantage of Typescript&amp;rsquo;s type checking and editor integration. The only real pain point is likely to be working with type declarations for third party libraries, but using &lt;code&gt;npm&lt;/code&gt; for the typings has made this easier, and there is always the option to import the library using &lt;code&gt;require&lt;/code&gt; and bypassing the need for type declarations initially.&lt;/p&gt;
 
-&lt;p&gt;I intend to write more about working with Typescript soon, but hopefully this is a useful start – any questions, comments or feedback is very welcome either via the comments, or via Twitter or email.&lt;/p&gt;
+&lt;p&gt;I intend to write more about working with Typescript and React soon, but hopefully this is a useful start – any questions, comments or feedback is very welcome either via the comments, or via Twitter or email.&lt;/p&gt;
 </description>
     </item>
     
