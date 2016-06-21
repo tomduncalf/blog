@@ -16,7 +16,7 @@ params:
     # Disqus shortname
     disqus: "tomduncalf"
     # Google Analytics API key.
-    ga_api_key: "UA-16279025-1"
+    ga_api_key: "UA-16279025-2"
     # Mixpanel API key.
     author: "Tom Duncalf"
     avatar: "http://www.tomduncalf.com/Me.jpg"
