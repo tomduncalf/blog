@@ -1,7 +1,7 @@
 +++
 date = "2016-06-21T19:46:14+01:00"
 draft = false
-title = "Setup guide for a new Typescript 1.9 and React project"
+title = "Setting up a new Typescript 1.9 and React project"
 +++
 
 # Introduction 
