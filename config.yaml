@@ -4,8 +4,25 @@ layoutdir: "layouts"
 publishdir: "public"
 indexes:
   category: "categories"
-baseurl: "http://spencerlyon2.github.io/hugo_gh_blog"
-title: "Hugo Blog Template for GitHub Pages"
+baseurl: "http://blog.tomduncalf.com"
+title: "Tom Duncalf’s Blog"
 canonifyurls: true
-theme: "Lanyon"
+theme: "vienna"
+
+params:
+    twitter: "tomduncalf"
+    github: "tomduncalf"
+    linkedin: "tomduncalf"
+    # Disqus shortname
+    disqus: "tomduncalf"
+    # Google Analytics API key.
+    ga_api_key: "UA-16279025-1"
+    # Mixpanel API key.
+    author: "Tom Duncalf"
+    avatar: "http://www.tomduncalf.com/Me.jpg"
+    contact: "mailto:tom@tomduncalf.com"
+    bio: "Freelance full stack software engineer, currently Javascript/Typescript/React"
+    # Short subtitle/tagline. This is displayed in the header.
+    subtitle: "Javascript, Typescript, React, other stuff"
+
 ...
