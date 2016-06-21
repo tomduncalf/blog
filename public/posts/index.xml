@@ -22,7 +22,7 @@
 
 &lt;p&gt;These instructions will guide you through setting up a new project with Typescript, React, Webpack and Babel – neither Webpack nor Babel are required to work with Typescript, as Typescript can transpile ES6 to ES5 and do some degree of bundling itself; but using them enables Hot Module Reloading, and also allows you to run other Babel and Webpack plugins on the compiled output if desired.&lt;/p&gt;
 
-&lt;p&gt;The resulting project template is available on Github at &lt;a href=&#34;https://github.com/tomduncalf/ts-react-template&#34;&gt;https://github.com/tomduncalf/ts-react-template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The resulting project template is available on Github at &lt;a href=&#34;https://github.com/tomduncalf/typescript-react-template&#34;&gt;https://github.com/tomduncalf/typescript-react-template&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&#34;editor-setup:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Editor setup&lt;/h1&gt;
 
@@ -506,7 +506,7 @@ export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;
 
 &lt;h1 id=&#34;next-steps:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Next steps&lt;/h1&gt;
 
-&lt;p&gt;That&amp;rsquo;s basically it in terms of project setup. As mentioned at the start, the complete template is available at &lt;a href=&#34;https://github.com/tomduncalf/ts-react-template&#34;&gt;https://github.com/tomduncalf/ts-react-template&lt;/a&gt; – I think it&amp;rsquo;s helpful to go through each step and understand why it is required the first time, but in future, you can use the template you&amp;rsquo;ve created as a starting point for new projects.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s basically it in terms of project setup. As mentioned at the start, the complete template is available at &lt;a href=&#34;https://github.com/tomduncalf/typescript-react-template&#34;&gt;https://github.com/tomduncalf/typescript-react-template&lt;/a&gt; – I think it&amp;rsquo;s helpful to go through each step and understand why it is required the first time, but in future, you can use the template you&amp;rsquo;ve created as a starting point for new projects.&lt;/p&gt;
 
 &lt;p&gt;In terms of next steps, it&amp;rsquo;s really just a case of building your app as usual, but taking advantage of Typescript&amp;rsquo;s type checking and editor integration. The only real pain point is likely to be working with type declarations for third party libraries, but using &lt;code&gt;npm&lt;/code&gt; for the typings has made this easier, and there is always the option to import the library using &lt;code&gt;require&lt;/code&gt; and bypassing the need for type declarations initially.&lt;/p&gt;
 

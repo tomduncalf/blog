@@ -10,7 +10,7 @@ This post is a brain dump of the steps required to set up a Typescript and React
 
 These instructions will guide you through setting up a new project with Typescript, React, Webpack and Babel – neither Webpack nor Babel are required to work with Typescript, as Typescript can transpile ES6 to ES5 and do some degree of bundling itself; but using them enables Hot Module Reloading, and also allows you to run other Babel and Webpack plugins on the compiled output if desired.
 
-The resulting project template is available on Github at https://github.com/tomduncalf/ts-react-template.
+The resulting project template is available on Github at https://github.com/tomduncalf/typescript-react-template.
 
 # Editor setup
 
@@ -502,7 +502,7 @@ Nearly there! All that remains is to add hot module reloading to the project. In
 
 # Next steps
 
-That's basically it in terms of project setup. As mentioned at the start, the complete template is available at https://github.com/tomduncalf/ts-react-template – I think it's helpful to go through each step and understand why it is required the first time, but in future, you can use the template you've created as a starting point for new projects.
+That's basically it in terms of project setup. As mentioned at the start, the complete template is available at https://github.com/tomduncalf/typescript-react-template – I think it's helpful to go through each step and understand why it is required the first time, but in future, you can use the template you've created as a starting point for new projects.
 
 In terms of next steps, it's really just a case of building your app as usual, but taking advantage of Typescript's type checking and editor integration. The only real pain point is likely to be working with type declarations for third party libraries, but using `npm` for the typings has made this easier, and there is always the option to import the library using `require` and bypassing the need for type declarations initially.
 
