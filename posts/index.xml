@@ -5,8 +5,52 @@
     <link>http://blog.tomduncalf.com/posts/</link>
     <description>Recent content in Posts on Tom Duncalf’s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 21 Jun 2016 19:46:14 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jun 2016 10:22:10 +0100</lastBuildDate>
     <atom:link href="http://blog.tomduncalf.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Functional Programming Fundamentals Talk</title>
+      <link>http://blog.tomduncalf.com/posts/functional-programming-fundamentals-talk/</link>
+      <pubDate>Fri, 24 Jun 2016 10:22:10 +0100</pubDate>
+      
+      <guid>http://blog.tomduncalf.com/posts/functional-programming-fundamentals-talk/</guid>
+      <description>&lt;p&gt;In February 2016, I gave a talk at &lt;a href=&#34;https://red-badger.com/&#34;&gt;Red Badger&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;http://www.meetup.com/Functional-Programming-for-the-Web/&#34;&gt;Functional Programming for the Web&lt;/a&gt; meetup in London, on the topic of &amp;ldquo;Functional Programming Fundamentals&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The talk explains topics such as first class functions, composition, currying, functors and monads in a (hopefully!) simple way for newcomers to FP, illustrated using JavaScript examples which are available on &lt;a href=&#34;http://bit.ly/FPFundamentalsCode&#34;&gt;GitHub&lt;/a&gt;, as are the &lt;a href=&#34;http://bit.ly/FPFundementals&#34;&gt;slides&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The talk was inspired by &lt;a href=&#34;https://twitter.com/drboolean&#34;&gt;Dr. Boolean&lt;/a&gt;&amp;rsquo;s excellent free e-book, &lt;a href=&#34;https://github.com/MostlyAdequate/mostly-adequate-guide&#34;&gt;Professor Frisby&amp;rsquo;s Mostly Adequate Guide to Functional Programming&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can watch the talk on &lt;a href=&#34;http://bit.ly/FPFundementalsTalk&#34;&gt;YouTube&lt;/a&gt; or below:&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/xyqTHLOra_I&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing React Applications with Mocha, Chai and Enzyme Talk</title>
+      <link>http://blog.tomduncalf.com/posts/react-unit-testing-with-mocha-chai-enzyme-talk/</link>
+      <pubDate>Fri, 24 Jun 2016 10:22:10 +0100</pubDate>
+      
+      <guid>http://blog.tomduncalf.com/posts/react-unit-testing-with-mocha-chai-enzyme-talk/</guid>
+      <description>&lt;p&gt;In April 2016, I gave a talk at &lt;a href=&#34;https://red-badger.com/&#34;&gt;Red Badger&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;http://www.meetup.com/London-React-User-Group/&#34;&gt;React London User Group&lt;/a&gt; meetup in London, on the topic of &amp;ldquo;Unit Testing React Applications with Mocha, Chai and Enzyme&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The talk introduces the fundamentals of testing a React application with AirBnB&amp;rsquo;s excellent &lt;a href=&#34;https://github.com/airbnb/enzyme&#34;&gt;Enzyme&lt;/a&gt; library, and explains my approach to both unit and integration testing apps using the combination of &lt;a href=&#34;https://mochajs.org/&#34;&gt;Mocha&lt;/a&gt;, &lt;a href=&#34;http://chaijs.com/&#34;&gt;Chai&lt;/a&gt; and &lt;a href=&#34;https://github.com/airbnb/enzyme&#34;&gt;Enzyme&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Both the &lt;a href=&#34;http://bit.ly/ReactTestingCode&#34;&gt;code samples&lt;/a&gt;, and the &lt;a href=&#34;http://bit.ly/ReactTestingPresentation&#34;&gt;slides&lt;/a&gt; are available on GitHub.&lt;/p&gt;
+
+&lt;p&gt;You can watch the talk on &lt;a href=&#34;http://bit.ly/ReactTestingTalk&#34;&gt;YouTube&lt;/a&gt; or below:&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/kkqArkYV4fw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Setting up a new Typescript 1.9 and React project</title>
