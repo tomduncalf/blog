@@ -3,7 +3,17 @@
   
   <url>
     <loc>http://blog.tomduncalf.com/</loc>
-    <lastmod>2016-06-21T19:46:14+01:00</lastmod>
+    <lastmod>2016-06-24T10:22:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.tomduncalf.com/posts/functional-programming-fundamentals-talk/</loc>
+    <lastmod>2016-06-24T10:22:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.tomduncalf.com/posts/react-unit-testing-with-mocha-chai-enzyme-talk/</loc>
+    <lastmod>2016-06-24T10:22:10+01:00</lastmod>
   </url>
   
   <url>
