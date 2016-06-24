@@ -16,7 +16,7 @@
       <guid>http://blog.tomduncalf.com/posts/setting-up-typescript-and-react/</guid>
       <description>
 
-&lt;h1 id=&#34;introduction:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;This post is a brain dump of the steps required to set up a Typescript and React project with some explanatory notes – I intend to write about working with Typescript and React in a real world project in more detail soon. Some knowledge of React and of the basics of Typescript is assumed.&lt;/p&gt;
 
@@ -24,21 +24,21 @@
 
 &lt;p&gt;The resulting project template is available on Github at &lt;a href=&#34;https://github.com/tomduncalf/typescript-react-template&#34;&gt;https://github.com/tomduncalf/typescript-react-template&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1 id=&#34;editor-setup:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Editor setup&lt;/h1&gt;
+&lt;h1 id=&#34;editor-setup&#34;&gt;Editor setup&lt;/h1&gt;
 
-&lt;h2 id=&#34;atom:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Atom&lt;/h2&gt;
+&lt;h2 id=&#34;atom&#34;&gt;Atom&lt;/h2&gt;
 
 &lt;p&gt;Atom users will need to install the &lt;code&gt;atom-typescript&lt;/code&gt; plugin, which is excellent, but currently doesn&amp;rsquo;t support some of the features in Typescript 1.9, and seems to be &lt;a href=&#34;https://github.com/TypeStrong/atom-typescript/pull/849&#34;&gt;lacking an active project leader&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;sublime:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Sublime&lt;/h2&gt;
+&lt;h2 id=&#34;sublime&#34;&gt;Sublime&lt;/h2&gt;
 
 &lt;p&gt;Sublime users will need the official Microsoft &lt;code&gt;Typescript&lt;/code&gt; package (&lt;a href=&#34;https://github.com/Microsoft/TypeScript-Sublime-Plugin&#34;&gt;https://github.com/Microsoft/TypeScript-Sublime-Plugin&lt;/a&gt;), which is also very good.&lt;/p&gt;
 
-&lt;h2 id=&#34;visual-studio-code:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Visual Studio Code&lt;/h2&gt;
+&lt;h2 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code&lt;/h2&gt;
 
 &lt;p&gt;Visual Studio Code users don&amp;rsquo;t need to install anything – it&amp;rsquo;s already set up for Typescript.&lt;/p&gt;
 
-&lt;h2 id=&#34;recommendation:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Recommendation&lt;/h2&gt;
+&lt;h2 id=&#34;recommendation&#34;&gt;Recommendation&lt;/h2&gt;
 
 &lt;p&gt;All of these editor/plugin combinations work well, and will automatically detect Typescript projects and offer the appropriate autocompletion and error highlighting.&lt;/p&gt;
 
@@ -48,11 +48,11 @@
 
 &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; If you are using Visual Studio Code, see step 1 for additional setup required to make it use the &lt;code&gt;typescript@next&lt;/code&gt; compiler.&lt;/p&gt;
 
-&lt;h2 id=&#34;linting:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Linting&lt;/h2&gt;
+&lt;h2 id=&#34;linting&#34;&gt;Linting&lt;/h2&gt;
 
 &lt;p&gt;If you want to lint your code, you&amp;rsquo;ll want to install a &lt;code&gt;tslint&lt;/code&gt; plugin for your editor and setup &lt;code&gt;tslint&lt;/code&gt; – see the project page at &lt;a href=&#34;https://github.com/palantir/tslint/&#34;&gt;https://github.com/palantir/tslint/&lt;/a&gt; for more information.&lt;/p&gt;
 
-&lt;h1 id=&#34;basic-project-setup:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Basic project setup&lt;/h1&gt;
+&lt;h1 id=&#34;basic-project-setup&#34;&gt;Basic project setup&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Install Typescript globally&lt;/strong&gt; - this is optional, but it&amp;rsquo;s handy to have the Typescript compiler &lt;code&gt;tsc&lt;/code&gt; available globally at the command line. We will use &lt;code&gt;typescript@next&lt;/code&gt; (version 1.9.x) even though it is still in beta, as it supports installing type declarations from &lt;code&gt;npm&lt;/code&gt; rather than having to use the &lt;code&gt;typings&lt;/code&gt; tool, which is &lt;a href=&#34;https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/&#34;&gt;the future of working with type declaration files&lt;/a&gt; and makes life much easier.&lt;/p&gt;
@@ -60,7 +60,7 @@
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install -g typescript@next
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;note-for-vs-code-users:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Note for VS Code users&lt;/h2&gt;
+&lt;h2 id=&#34;note-for-vs-code-users&#34;&gt;Note for VS Code users&lt;/h2&gt;
 
 &lt;p&gt;If you are using VS Code, you need to tell it to use the Typescript compiler that you installed with &lt;code&gt;npm&lt;/code&gt;, otherwise you&amp;rsquo;ll get syntax errors as the internal VS Code Typescript compiler is v1.8 and so doesn&amp;rsquo;t support type declarations installed from &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
 
@@ -90,7 +90,7 @@ tsc --init
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#34;setting-up-tsconfig-json:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Setting up tsconfig.json&lt;/h1&gt;
+&lt;h1 id=&#34;setting-up-tsconfig-json&#34;&gt;Setting up tsconfig.json&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;tsconfig.json&lt;/code&gt; controls the behaviour of the Typescript compiler (&lt;code&gt;tsc&lt;/code&gt;). There are a few settings which are useful for React and Babel projects which differ from the defaults. &lt;strong&gt;Open &lt;code&gt;tsconfig.json&lt;/code&gt; and change it to the following&lt;/strong&gt;:&lt;/p&gt;
@@ -142,7 +142,7 @@ tsc --init
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#34;adding-react-to-the-project:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Adding React to the project&lt;/h1&gt;
+&lt;h1 id=&#34;adding-react-to-the-project&#34;&gt;Adding React to the project&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Install React to &lt;code&gt;node_modules&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
@@ -153,7 +153,6 @@ tsc --init
 &lt;li&gt;&lt;p&gt;To demonstrate what we are about to do, &lt;strong&gt;&lt;code&gt;mkdir src&lt;/code&gt; and create a file &lt;code&gt;index.tsx&lt;/code&gt; in there&lt;/strong&gt; containing a basic (stateless) React component:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import * as React from &#39;react&#39;;
-
 
 export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;;
 &lt;/code&gt;&lt;/pre&gt;
@@ -193,7 +192,7 @@ npm i -D @types/react-dom
 &lt;p&gt;One other thing worth noting is that the current version of the React typings is &lt;code&gt;0.14&lt;/code&gt; whereas we are using React &lt;code&gt;0.15&lt;/code&gt; – this is one downside of type declarations being maintained by the community, but in most cases it doesn&amp;rsquo;t present too much of a problem (as long as the API hasn&amp;rsquo;t changed much). It is of course possible to put in a PR to DefinitelyTyped to fix the type defs if they are out of sync (or to augment them with local type declaration &amp;ldquo;overrides&amp;rdquo;, or in extreme cases, to import the module without any typings – more on that later).&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#34;setting-up-webpack-and-babel:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Setting up Webpack and Babel&lt;/h1&gt;
+&lt;h1 id=&#34;setting-up-webpack-and-babel&#34;&gt;Setting up Webpack and Babel&lt;/h1&gt;
 
 &lt;p&gt;As mentioned above, we&amp;rsquo;re using Babel to transpile to ES6 output from Typescript so we can take advantage of the Babel plugin ecosystem, and Webpack as our module bundler; so we need to setup Webpack to invoke the Typescript loader and then pass the output to Babel. I won&amp;rsquo;t go into too much detail on the Webpack setup as it&amp;rsquo;s a huge topic in itself!&lt;/p&gt;
 
@@ -225,7 +224,6 @@ npm i -D @types/react-dom
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var webpack = require(&#39;webpack&#39;);
 var path = require(&#39;path&#39;);
 var WebpackNotifierPlugin = require(&#39;webpack-notifier&#39;);
-
 
 module.exports = {
   devtool: &#39;eval&#39;,
@@ -272,7 +270,7 @@ module.exports = {
 &lt;p&gt;and see that it has created an output file at &lt;code&gt;dist/app.js&lt;/code&gt; (you probably want to &lt;code&gt;gitignore&lt;/code&gt; the &lt;code&gt;dist&lt;/code&gt; directory).&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#34;adding-hot-module-reloading:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Adding hot module reloading&lt;/h1&gt;
+&lt;h1 id=&#34;adding-hot-module-reloading&#34;&gt;Adding hot module reloading&lt;/h1&gt;
 
 &lt;p&gt;Nearly there! All that remains is to add hot module reloading to the project. In reality, this is completely optional, but I find it invaluable for working on a React project, so would consider it part of any project&amp;rsquo;s setup. It&amp;rsquo;s also not really Typescript-specific, but there aren&amp;rsquo;t many good guides out there for setting up the latest version of HMR, and setting it up gives us a chance to see a couple more tips on working with Typescript.&lt;/p&gt;
 
@@ -316,7 +314,6 @@ module.exports = {
 var WebpackDevServer = require(&#39;webpack-dev-server&#39;);
 var config = require(&#39;./config/webpack.config&#39;);
 
-
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
@@ -325,7 +322,6 @@ new WebpackDevServer(webpack(config), {
   if (err) {
     return console.log(err);
   }
-
 
   console.log(&#39;Listening at http://localhost:3000/&#39;);
 });
@@ -336,7 +332,6 @@ new WebpackDevServer(webpack(config), {
 &lt;pre&gt;&lt;code&gt;var webpack = require(&#39;webpack&#39;);
 var path = require(&#39;path&#39;);
 var WebpackNotifierPlugin = require(&#39;webpack-notifier&#39;);
-
 
 module.exports = {
   devtool: &#39;eval&#39;,
@@ -387,18 +382,14 @@ import { render } from &#39;react-dom&#39;;
 // Import the Hot Module Reloading App Container – more on why we use &#39;require&#39; below
 const { AppContainer } = require(&#39;react-hot-loader&#39;);
 
-
 // Import our App container (which we will create in the next step)
 import App from &#39;containers/App&#39;;
-
 
 // Tell Typescript that there is a global variable called module - see below
 declare var module: { hot: any };
 
-
 // Get the root element from the HTML
 const rootEl = document.getElementById(&#39;app&#39;);
-
 
 // And render our App into it, inside the HMR App ontainer which handles the hot reloading
 render(
@@ -408,13 +399,11 @@ render(
   rootEl
 );
 
-
 // Handle hot reloading requests from Webpack
 if (module.hot) {
   module.hot.accept(&#39;./containers/App&#39;, () =&amp;gt; {
     // If we receive a HMR request for our App container, then reload it using require (we can&#39;t do this dynamically with import)
     const NextApp = require(&#39;./containers/App&#39;).default;
-
 
     // And render it into the root element again
     render(
@@ -433,7 +422,7 @@ if (module.hot) {
 
 &lt;p&gt;A quick note on a couple of things:&lt;/p&gt;
 
-&lt;h2 id=&#34;importing-modules-without-type-declarations:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Importing modules without type declarations&lt;/h2&gt;
+&lt;h2 id=&#34;importing-modules-without-type-declarations&#34;&gt;Importing modules without type declarations&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;const { AppContainer } = require(&#39;react-hot-loader&#39;);
 &lt;/code&gt;&lt;/pre&gt;
@@ -446,7 +435,7 @@ if (module.hot) {
 
 &lt;p&gt;See the next step for an important note on this – by default, Typescript doesn&amp;rsquo;t know what &lt;code&gt;require&lt;/code&gt; means (as it&amp;rsquo;s not a built-in Javascript construct).&lt;/p&gt;
 
-&lt;h2 id=&#34;declaring-global-variables:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Declaring global variables&lt;/h2&gt;
+&lt;h2 id=&#34;declaring-global-variables&#34;&gt;Declaring global variables&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;declare var module: { hot: any };
 &lt;/code&gt;&lt;/pre&gt;
@@ -479,7 +468,6 @@ if (module.hot) {
 &lt;pre&gt;&lt;code&gt;declare module &amp;quot;redux-form&amp;quot; {
     export var change: any
 
-
     export interface ReduxFormConfig {
         alwaysAsyncValidate?: boolean
     }
@@ -492,7 +480,6 @@ if (module.hot) {
 
 &lt;pre&gt;&lt;code&gt;import * as React from &#39;react&#39;
 
-
 export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -504,7 +491,7 @@ export default () =&amp;gt; &amp;lt;div&amp;gt;Hello world&amp;lt;/div&amp;gt;
 &lt;p&gt;and go to &lt;a href=&#34;http://127.0.0.1:3000&#34;&gt;http://127.0.0.1:3000&lt;/a&gt; to see the &amp;ldquo;Hello World&amp;rdquo; message! Update the &lt;code&gt;App.tsx&lt;/code&gt; file to say something else, and you should see the app hot reload.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&#34;next-steps:0a3ac9e5e91cb9461812f85f023fcd75&#34;&gt;Next steps&lt;/h1&gt;
+&lt;h1 id=&#34;next-steps&#34;&gt;Next steps&lt;/h1&gt;
 
 &lt;p&gt;That&amp;rsquo;s basically it in terms of project setup. As mentioned at the start, the complete template is available at &lt;a href=&#34;https://github.com/tomduncalf/typescript-react-template&#34;&gt;https://github.com/tomduncalf/typescript-react-template&lt;/a&gt; – I think it&amp;rsquo;s helpful to go through each step and understand why it is required the first time, but in future, you can use the template you&amp;rsquo;ve created as a starting point for new projects.&lt;/p&gt;
 
