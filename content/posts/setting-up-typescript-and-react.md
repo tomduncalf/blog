@@ -1,4 +1,6 @@
 +++
+Description = "A guide to setting up a new project using Typescript 1.9, React, Babel and Webpack with Hot Module Reloading"
+Tags = ["typescript", "react", "babel", "webpack"]
 date = "2016-06-21T19:46:14+01:00"
 draft = false
 title = "Setting up a new Typescript 1.9 and React project"
